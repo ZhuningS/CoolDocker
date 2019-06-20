@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "name": "微信公众号",
+  "description": "No description provided",
+  "source_url": false,
+  "guid": "c0be876a712baf52fa4270d6b1744432",
+  "tag_fg_color": "#ffffff",
+  "tag_bg_color": "#00b050",
+  "icon": "leaf",
+  "exported_at": "2017-05-28T02:35:18Z",
+  "agents": [
+    {
+      "type": "Agents::DeDuplicationAgent",
+      "name": "微信公众号 #3 去除重复",
+      "disabled": false,
+      "guid": "3250efcc923ce4c10b30763c6e0365b6",
+      "options": {
+        "property": "{{title}}",
+        "lookback": "0",
+        "expected_update_period_in_days": "20"
+      },
+      "keep_events_for": 15552000,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::WebsiteAgent",
+      "name": "微信公众号 #2 获取文章列表",
+      "disabled": false,
+      "guid": "606e3875f2368e053aace5f3d9ceeb9d",
+      "options": {
+        "expected_update_period_in_days": "20",
+        "url": "https://phantomjscloud.com/api/browser/v2/{% credential phantomjs_cloud %}/?request={url:\"{{url | replace: '&', '%26'}}\",renderType:\"html\"}",
+        "type": "html",
+        "mode": "on_change",
+        "extract": {
+          "url": {
+            "css": "h4",
+            "value": "@hrefs"
+          },
+          "title": {
+            "css": "h4",
+            "value": "string(.)"
+          }
+        },
+        "events_order": [
+          [
+            "{{_index_}}",
+            "number",
+            "true"
+          ]
+        ],
+        "template": {
+          "url": "{{ url | to_uri: \"http://mp.weixin.qq.com\" }}"
+        }
+      },
+      "schedule": "never",
+      "keep_events_for": 7776000,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::WebsiteAgent",
+      "name": "微信公众号 #1 搜索账号",
+      "disabled": false,
+      "guid": "a4c7bc9e333c38cbb4fdfa3a24c191ed",
+      "options": {
+        "expected_update_period_in_days": "4",
+        "_comment": [
+          "利器",
+          "PingWest品玩",
+          "经济学人",
+          "译读",
+          "爱思想的青年",
+          "苔原",
+          "连岳",
+          "新京报传媒研究",
+          "鲤newriting",
+          "看理想",
+          "取经号JTW",
+          "星期天读书会",
+          "译读小号二世",
+          "京师心理大学堂"
+        ],
+        "url": [
+          "http://weixin.sogou.com/weixin?query=liqiio",
+          "http://weixin.sogou.com/weixin?query=wepingwest",
+          "http://weixin.sogou.com/weixin?query=TheEconomistGroup",
+          "http://weixin.sogou.com/weixin?query=T-Read",
+          "http://weixin.sogou.com/weixin?query=asxdqn",
+          "http://weixin.sogou.com/weixin?query=the_tundra",
+          "http://weixin.sogou.com/weixin?query=ilianyue",
+          "http://weixin.sogou.com/weixin?query=xjbcmyj",
+          "http://weixin.sogou.com/weixin?query=newriting200806",
+          "http://weixin.sogou.com/weixin?query=ikanlixiang",
+          "http://weixin.sogou.com/weixin?query=JTWest",
+          "http://weixin.sogou.com/weixin?query=SundayReading",
+          "http://weixin.sogou.com/weixin?query=WinnieTheFool",
+          "http://weixin.sogou.com/weixin?query=bnupsychology"
+        ],
+        "type": "html",
+        "mode": "on_change",
+        "extract": {
+          "url": {
+            "css": ".news-box > ul > li:first-child .tit a",
+            "value": "@href"
+          }
+        }
+      },
+      "schedule": "every_1d",
+      "keep_events_for": 86400,
+      "propagate_immediately": false
+    },
+    {
+      "type": "Agents::DataOutputAgent",
+      "name": "微信公众号 #5 输出RSS",
+      "disabled": false,
+      "guid": "cbc2ced20c71d435a5bd375b3e580797",
+      "options": {
+        "secrets": [
+          "weixin_public"
+        ],
+        "expected_receive_period_in_days": "20",
+        "template": {
+          "title": "微信公众号",
+          "description": "微信公众号",
+          "item": {
+            "title": "【{{author}}】{{title}}",
+            "description": "{{ desciption | replace: 'data-src', 'src' }}",
+            "link": "{{url}}"
+          },
+          "link": "https://weixin.sogou.com/",
+          "icon": "https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/images/icon/common/favicon22c41b.ico"
+        },
+        "ns_media": "true",
+        "events_to_show": "300"
+      },
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::WebsiteAgent",
+      "name": "微信公众号 #4 获取单篇文章全文",
+      "disabled": false,
+      "guid": "f7c52fcd85cea0d7426978202f4dc692",
+      "options": {
+        "expected_update_period_in_days": "20",
+        "url_from_event": "https://phantomjscloud.com/api/browser/v2/{% credential phantomjs_cloud %}/?request={url:\"{{url | replace: '&', '%26'}}\",renderType:\"html\"}",
+        "type": "html",
+        "mode": "merge",
+        "extract": {
+          "desciption": {
+            "css": "#js_content",
+            "value": "./node()"
+          },
+          "author": {
+            "css": "#post-user",
+            "value": "string(.)"
+          },
+          "title": {
+            "css": "#activity-name",
+            "value": "string(.)"
+          }
+        }
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    }
+  ],
+  "links": [
+    {
+      "source": 0,
+      "receiver": 4
+    },
+    {
+      "source": 1,
+      "receiver": 0
+    },
+    {
+      "source": 2,
+      "receiver": 1
+    },
+    {
+      "source": 4,
+      "receiver": 3
+    }
+  ],
+  "control_links": [
+
+  ]
+}

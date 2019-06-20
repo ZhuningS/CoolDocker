@@ -1,0 +1,84 @@
+{
+   "cap_add" : null,
+   "cap_drop" : null,
+   "cmd" : "/usr/bin/supervisord",
+   "cpu_priority" : 50,
+   "devices" : null,
+   "enable_publish_all_ports" : false,
+   "enable_restart_policy" : false,
+   "enabled" : false,
+   "env_variables" : [
+      {
+         "key" : "PATH",
+         "value" : "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      },
+      {
+         "key" : "HOME",
+         "value" : "/root"
+      },
+      {
+         "key" : "DEBIAN_FRONTEND",
+         "value" : "noninteractive"
+      },
+      {
+         "key" : "LC_ALL",
+         "value" : "C.UTF-8"
+      },
+      {
+         "key" : "LANG",
+         "value" : "en_US.UTF-8"
+      },
+      {
+         "key" : "LANGUAGE",
+         "value" : "en_US.UTF-8"
+      },
+      {
+         "key" : "TZ",
+         "value" : "Asia/Shanghai"
+      },
+      {
+         "key" : "SCREEN_RESOLUTION",
+         "value" : "1280x900"
+      },
+      {
+         "key" : "DISPLAY",
+         "value" : ":0"
+      }
+   ],
+   "exporting" : false,
+   "id" : "45b8cb205c3860662b79b22ae1781234efbdc88c24fc90502ed9fd90e7cfe745",
+   "image" : "oldiy/chrome-novnc:latest",
+   "is_ddsm" : false,
+   "is_package" : false,
+   "links" : [],
+   "memory_limit" : 1369440256,
+   "memory_limit_slider" : 1306,
+   "name" : "oldiy-chrome-novnc1",
+   "network" : [
+      {
+         "driver" : "bridge",
+         "name" : "bridge"
+      }
+   ],
+   "network_mode" : "bridge",
+   "port_bindings" : [
+      {
+         "container_port" : 5900,
+         "host_port" : 5900,
+         "type" : "tcp"
+      },
+      {
+         "container_port" : 8083,
+         "host_port" : 8083,
+         "type" : "tcp"
+      }
+   ],
+   "privileged" : false,
+   "shortcut" : {
+      "enable_shortcut" : false
+   },
+   "ulimits" : null,
+   "use_host_network" : false,
+   "volume_bindings" : [],
+   "volumes_from" : null
+}

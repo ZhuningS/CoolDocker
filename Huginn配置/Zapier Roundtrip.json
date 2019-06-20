@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "name": "Zapier Roundtrip",
+  "description": "To use this scenario you need to request an invite to the Zapier [Huginn Example Application](https://zapier.com/developer/invite/37080/d8904201a28118a1530cec924368928b/). After you have done this create a new Zap:\r\n\r\nChoose `Webhooks by Zapier` as the trigger, select `Catch a Hook`, click continue and copy the webhook URL. Modify the Zapier Trigger Agent and set the webhook URL as `post_url`. On Zapier click `OK, I did this` and run the `Zapier Trigger` Agent in Huginn to verify the hook is set up correctly.\r\n\r\nAs an Action choose the `Huginn Example Application`, `create an event` is the only possible option. Make sure your Huginn instance is reachable from the internet and copy the web hook URL of the `Zapier Receiver` Agent into the `Huginn Endpoint` configuration field, the values can be configured according to your likings.\r\n\r\n",
+  "source_url": false,
+  "guid": "4500ad74ec6503a4036456f576ef4945",
+  "tag_fg_color": "#ffffff",
+  "tag_bg_color": "#5bc0de",
+  "exported_at": "2016-04-07T13:39:45Z",
+  "agents": [
+    {
+      "type": "Agents::WebhookAgent",
+      "name": "Zapier Receiver",
+      "disabled": false,
+      "guid": "39bf59bf4931523e251ae79720bf3e2a",
+      "options": {
+        "secret": "supersecretstring",
+        "expected_receive_period_in_days": 1,
+        "payload_path": "."
+      },
+      "keep_events_for": 0
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "Zapier Trigger",
+      "disabled": false,
+      "guid": "de916c5659aa1d0d910bd3cb261625d6",
+      "options": {
+        "post_url": "http://configureme",
+        "expected_receive_period_in_days": "1",
+        "content_type": "json",
+        "method": "post",
+        "emit_events": "true",
+        "no_merge": "false",
+        "payload": {
+          "value1": "v1",
+          "value2": "v2",
+          "value3": "v3"
+        }
+      },
+      "schedule": "never",
+      "keep_events_for": 0,
+      "propagate_immediately": false
+    }
+  ],
+  "links": [
+
+  ],
+  "control_links": [
+
+  ]
+}

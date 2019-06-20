@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "name": "订阅微信公众号",
+  "description": "将微信公众号转成成RSS",
+  "source_url": false,
+  "guid": "dd67102f09869c2228f8ed903a32d063",
+  "tag_fg_color": "#ffffff",
+  "tag_bg_color": "#ffff00",
+  "icon": "music",
+  "exported_at": "2017-05-13T09:54:12Z",
+  "agents": [
+    {
+      "type": "Agents::DataOutputAgent",
+      "name": "输出RSS",
+      "disabled": false,
+      "guid": "1ea34bb7e56575e6c007bf2e2f48b990",
+      "options": {
+        "secrets": [
+          "weixin"
+        ],
+        "expected_receive_period_in_days": 2,
+        "template": {
+          "title": "订阅微信公众号（吴晓波频道）",
+          "description": "将微信公众号（吴晓波频道）输出RSS",
+          "item": {
+            "title": "{{title}}",
+            "description": "{{fulltext|regex_replace:'data-src','src'}}",
+            "link": "{{url}}"
+          }
+        }
+      },
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::WebsiteAgent",
+      "name": "从搜狗微信搜索公众号，获取最新文章标题",
+      "disabled": false,
+      "guid": "85aacca89f1adca01657b1fcc8e277fe",
+      "options": {
+        "expected_update_period_in_days": "2",
+        "url": [
+          "https://mp.weixin.qq.com/profile?src=3&timestamp=1518673803&ver=1&signature=PxhdPaM3APRyEasXSrE1S20pHx8vrKBJq9CrjxF1qvejqDPLiK9Si1n1hCXin53HDTw4698ZyQjxnLzCz8oTJA=="
+        ],
+        "type": "html",
+        "mode": "on_change",
+        "extract": {
+          "title": {
+            "css": "#sogou_vr_11002301_box_0 > dl:nth-child(3) > dd > a",
+            "value": ".//text()"
+          }
+        }
+      },
+      "schedule": "every_1d",
+      "keep_events_for": 2592000,
+      "propagate_immediately": false
+    },
+    {
+      "type": "Agents::WebsiteAgent",
+      "name": "获取公众号最新文章的链接地址",
+      "disabled": false,
+      "guid": "a4ee2be0c0719aed34d0fa7c8e6d1b6e",
+      "options": {
+        "expected_update_period_in_days": "2",
+        "url": [
+          "https://mp.weixin.qq.com/profile?src=3&timestamp=1518673803&ver=1&signature=PxhdPaM3APRyEasXSrE1S20pHx8vrKBJq9CrjxF1qvejqDPLiK9Si1n1hCXin53HDTw4698ZyQjxnLzCz8oTJA=="
+        ],
+        "type": "html",
+        "mode": "all",
+        "extract": {
+          "url": {
+            "css": "#sogou_vr_11002301_box_0 > dl:nth-child(3) > dd > a",
+            "value": "@href"
+          }
+        }
+      },
+      "schedule": "never",
+      "keep_events_for": 21600,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::WebsiteAgent",
+      "name": "获取微信公众号全文 ",
+      "disabled": false,
+      "guid": "c5b16d43997a5195533911e8d1824711",
+      "options": {
+        "expected_update_period_in_days": "2",
+        "url_from_event": "{{url}}",
+        "type": "html",
+        "mode": "merge",
+        "extract": {
+          "title": {
+            "css": "#activity-name",
+            "value": "."
+          },
+          "fulltext": {
+            "css": "#js_content",
+            "value": "."
+          }
+        }
+      },
+      "schedule": "every_12h",
+      "keep_events_for": 0,
+      "propagate_immediately": true
+    }
+  ],
+  "links": [
+    {
+      "source": 1,
+      "receiver": 2
+    },
+    {
+      "source": 2,
+      "receiver": 3
+    },
+    {
+      "source": 3,
+      "receiver": 0
+    }
+  ],
+  "control_links": [
+
+  ]
+}

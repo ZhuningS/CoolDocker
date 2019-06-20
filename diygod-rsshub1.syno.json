@@ -1,0 +1,70 @@
+{
+   "cap_add" : [],
+   "cap_drop" : [],
+   "cmd" : "/bin/sh",
+   "cpu_priority" : 50,
+   "devices" : null,
+   "enable_publish_all_ports" : false,
+   "enable_restart_policy" : true,
+   "enabled" : false,
+   "env_variables" : [
+      {
+         "key" : "PATH",
+         "value" : "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      },
+      {
+         "key" : "NODE_VERSION",
+         "value" : "10.13.0"
+      },
+      {
+         "key" : "YARN_VERSION",
+         "value" : "1.10.1"
+      },
+      {
+         "key" : "NODE_ENV",
+         "value" : "production"
+      },
+      {
+         "key" : "HTTP_BASIC_AUTH_PASS",
+         "value" : "password"
+      },
+      {
+         "key" : "HTTP_BASIC_AUTH_NAME",
+         "value" : "admin"
+      },
+      {
+         "key" : "CACHE_EXPIRE",
+         "value" : "3600"
+      }
+   ],
+   "exporting" : false,
+   "id" : "f49fcd6e89b2437f18e785b050618a722cc2808d9900152a9ce23992a582124a",
+   "image" : "diygod-rsshub1:latest",
+   "is_ddsm" : false,
+   "is_package" : false,
+   "links" : [],
+   "memory_limit" : 1073741824,
+   "name" : "diygod-rsshub1",
+   "network" : [
+      {
+         "driver" : "bridge",
+         "name" : "bridge"
+      }
+   ],
+   "network_mode" : "bridge",
+   "port_bindings" : [
+      {
+         "container_port" : 1200,
+         "host_port" : 1200,
+         "type" : "tcp"
+      }
+   ],
+   "privileged" : false,
+   "shortcut" : {
+      "enable_shortcut" : false
+   },
+   "ulimits" : null,
+   "use_host_network" : false,
+   "volume_bindings" : [],
+   "volumes_from" : null
+}

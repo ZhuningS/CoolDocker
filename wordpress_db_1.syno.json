@@ -1,0 +1,62 @@
+{
+   "cap_add" : null,
+   "cap_drop" : null,
+   "cmd" : "mysqld",
+   "cpu_priority" : 50,
+   "devices" : null,
+   "enable_publish_all_ports" : false,
+   "enable_restart_policy" : false,
+   "enabled" : false,
+   "env_variables" : [
+      {
+         "key" : "PATH",
+         "value" : "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      },
+      {
+         "key" : "GOSU_VERSION",
+         "value" : "1.7"
+      },
+      {
+         "key" : "MYSQL_MAJOR",
+         "value" : "8.0"
+      },
+      {
+         "key" : "MYSQL_VERSION",
+         "value" : "8.0.15-1debian9"
+      },
+      {
+         "key" : "MYSQL_ROOT_PASSWORD",
+         "value" : "passwd"
+      }
+   ],
+   "exporting" : false,
+   "id" : "2c16996aef54a5778d14754df961c67106881135d499062f533f10afee57bc45",
+   "image" : "mysql:latest",
+   "is_ddsm" : false,
+   "is_package" : false,
+   "links" : [],
+   "memory_limit" : 0,
+   "name" : "wordpress_db_1",
+   "network" : [
+      {
+         "driver" : "bridge",
+         "name" : "wordpress_default"
+      }
+   ],
+   "network_mode" : "wordpress_default",
+   "port_bindings" : [],
+   "privileged" : false,
+   "shortcut" : {
+      "enable_shortcut" : false
+   },
+   "ulimits" : null,
+   "use_host_network" : false,
+   "volume_bindings" : [
+      {
+         "host_volume_file" : "/docker/wordpress/db_data",
+         "mount_point" : "/var/lib/mysql",
+         "type" : "rw"
+      }
+   ],
+   "volumes_from" : []
+}

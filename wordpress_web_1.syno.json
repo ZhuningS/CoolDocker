@@ -1,0 +1,124 @@
+{
+   "cap_add" : null,
+   "cap_drop" : null,
+   "cmd" : "apache2-foreground",
+   "cpu_priority" : 50,
+   "devices" : null,
+   "enable_publish_all_ports" : false,
+   "enable_restart_policy" : false,
+   "enabled" : false,
+   "env_variables" : [
+      {
+         "key" : "PATH",
+         "value" : "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      },
+      {
+         "key" : "PHPIZE_DEPS",
+         "value" : "autoconf \t\tdpkg-dev \t\tfile \t\tg++ \t\tgcc \t\tlibc-dev \t\tmake \t\tpkg-config \t\tre2c"
+      },
+      {
+         "key" : "PHP_INI_DIR",
+         "value" : "/usr/local/etc/php"
+      },
+      {
+         "key" : "APACHE_CONFDIR",
+         "value" : "/etc/apache2"
+      },
+      {
+         "key" : "APACHE_ENVVARS",
+         "value" : "/etc/apache2/envvars"
+      },
+      {
+         "key" : "PHP_EXTRA_BUILD_DEPS",
+         "value" : "apache2-dev"
+      },
+      {
+         "key" : "PHP_EXTRA_CONFIGURE_ARGS",
+         "value" : "--with-apxs2 --disable-cgi"
+      },
+      {
+         "key" : "PHP_CFLAGS",
+         "value" : "-fstack-protector-strong -fpic -fpie -O2"
+      },
+      {
+         "key" : "PHP_CPPFLAGS",
+         "value" : "-fstack-protector-strong -fpic -fpie -O2"
+      },
+      {
+         "key" : "PHP_LDFLAGS",
+         "value" : "-Wl,-O1 -Wl,--hash-style=both -pie"
+      },
+      {
+         "key" : "GPG_KEYS",
+         "value" : "1729F83938DA44E27BA0F4D3DBDB397470D12172 B1B44D8F021E4E2D6021E995DC9FF8D3EE5AF27F"
+      },
+      {
+         "key" : "PHP_VERSION",
+         "value" : "7.2.17"
+      },
+      {
+         "key" : "PHP_URL",
+         "value" : "https://www.php.net/get/php-7.2.17.tar.xz/from/this/mirror"
+      },
+      {
+         "key" : "PHP_ASC_URL",
+         "value" : "https://www.php.net/get/php-7.2.17.tar.xz.asc/from/this/mirror"
+      },
+      {
+         "key" : "PHP_SHA256",
+         "value" : "a3e5f51a9ae08813b3925bea3a4de02cd4906fcccf75646e267a213bb63bcf84"
+      },
+      {
+         "key" : "PHP_MD5",
+         "value" : ""
+      },
+      {
+         "key" : "WORDPRESS_VERSION",
+         "value" : "5.1.1"
+      },
+      {
+         "key" : "WORDPRESS_SHA1",
+         "value" : "f1bff89cc360bf5ef7086594e8a9b68b4cbf2192"
+      },
+      {
+         "key" : "WORDPRESS_DB_PASSWORD",
+         "value" : "passwd"
+      }
+   ],
+   "exporting" : false,
+   "id" : "630762a99f5cb77a536faa8071126b576578aa886ad0c14c3892c6ec0399312c",
+   "image" : "wordpress:latest",
+   "is_ddsm" : false,
+   "is_package" : false,
+   "links" : [],
+   "memory_limit" : 0,
+   "name" : "wordpress_web_1",
+   "network" : [
+      {
+         "driver" : "bridge",
+         "name" : "wordpress_default"
+      }
+   ],
+   "network_mode" : "wordpress_default",
+   "port_bindings" : [
+      {
+         "container_port" : 80,
+         "host_port" : 9988,
+         "type" : "tcp"
+      }
+   ],
+   "privileged" : false,
+   "shortcut" : {
+      "enable_shortcut" : false
+   },
+   "ulimits" : null,
+   "use_host_network" : false,
+   "volume_bindings" : [
+      {
+         "host_volume_file" : "/docker/wordpress/web_data",
+         "mount_point" : "/var/www/html",
+         "type" : "rw"
+      }
+   ],
+   "volumes_from" : []
+}

@@ -1,0 +1,74 @@
+{
+   "cap_add" : null,
+   "cap_drop" : null,
+   "cmd" : "",
+   "cpu_priority" : 50,
+   "devices" : null,
+   "enable_publish_all_ports" : false,
+   "enable_restart_policy" : false,
+   "enabled" : false,
+   "env_variables" : [
+      {
+         "key" : "SELF_URL_PATH",
+         "value" : "http://192.168.1.104:1280/ttrss"
+      },
+      {
+         "key" : "PATH",
+         "value" : "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      },
+      {
+         "key" : "DB_NAME",
+         "value" : "ttrss"
+      },
+      {
+         "key" : "DB_USER",
+         "value" : "ttrss"
+      },
+      {
+         "key" : "DB_PASS",
+         "value" : "ttrss"
+      },
+      {
+         "key" : "AUTH_METHOD",
+         "value" : "internal"
+      }
+   ],
+   "exporting" : false,
+   "id" : "f9c82755a4141b2b9bbcd0302f4593077059564b3b88c6764a32e13822df3b49",
+   "image" : "titzanyic/ttrss:latest",
+   "is_ddsm" : false,
+   "is_package" : false,
+   "links" : [
+      {
+         "alias" : "db",
+         "link_container" : "nornagon-postgres1"
+      }
+   ],
+   "memory_limit" : 1073741824,
+   "name" : "titzanyic-ttrss1",
+   "network" : [
+      {
+         "driver" : "bridge",
+         "name" : "bridge"
+      }
+   ],
+   "network_mode" : "bridge",
+   "port_bindings" : [
+      {
+         "container_port" : 80,
+         "host_port" : 1280,
+         "type" : "tcp"
+      }
+   ],
+   "privileged" : false,
+   "shortcut" : {
+      "enable_shortcut" : false,
+      "enable_status_page" : false,
+      "enable_web_page" : false,
+      "web_page_url" : ""
+   },
+   "ulimits" : null,
+   "use_host_network" : false,
+   "volume_bindings" : [],
+   "volumes_from" : null
+}

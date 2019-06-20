@@ -1,0 +1,86 @@
+{
+   "cap_add" : null,
+   "cap_drop" : null,
+   "cmd" : "node current/index.js",
+   "cpu_priority" : 50,
+   "devices" : null,
+   "enable_publish_all_ports" : false,
+   "enable_restart_policy" : true,
+   "enabled" : true,
+   "entrypoint_default" : "docker-entrypoint.sh",
+   "env_variables" : [
+      {
+         "key" : "PATH",
+         "value" : "http://192.168.1.103:3001/"
+      },
+      {
+         "key" : "PATH2",
+         "value" : "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      },
+      {
+         "key" : "NODE_VERSION",
+         "value" : "10.15.3"
+      },
+      {
+         "key" : "YARN_VERSION",
+         "value" : "1.13.0"
+      },
+      {
+         "key" : "GOSU_VERSION",
+         "value" : "1.10"
+      },
+      {
+         "key" : "NODE_ENV",
+         "value" : "production"
+      },
+      {
+         "key" : "GHOST_CLI_VERSION",
+         "value" : "1.9.9"
+      },
+      {
+         "key" : "GHOST_INSTALL",
+         "value" : "/var/lib/ghost"
+      },
+      {
+         "key" : "GHOST_CONTENT",
+         "value" : "/var/lib/ghost/content"
+      },
+      {
+         "key" : "GHOST_VERSION",
+         "value" : "2.19.1"
+      }
+   ],
+   "exporting" : false,
+   "id" : "0b048b2e22f98e60c6172a6eb1059163c50f57e279459939bd2867f6a054f134",
+   "image" : "ghost:latest",
+   "is_ddsm" : false,
+   "is_package" : false,
+   "links" : [],
+   "memory_limit" : 1073741824,
+   "name" : "ghost1",
+   "network" : [
+      {
+         "driver" : "bridge",
+         "name" : "bridge"
+      }
+   ],
+   "network_mode" : "bridge",
+   "port_bindings" : [
+      {
+         "container_port" : 2368,
+         "host_port" : 3001,
+         "type" : "tcp"
+      }
+   ],
+   "privileged" : false,
+   "shortcut" : {
+      "enable_shortcut" : true,
+      "enable_status_page" : false,
+      "enable_web_page" : true,
+      "web_page_url" : "http://192.168.1.103:3001"
+   },
+   "ulimits" : null,
+   "use_host_network" : false,
+   "volume_bindings" : [],
+   "volumes_from" : null
+}

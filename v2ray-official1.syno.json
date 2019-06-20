@@ -1,0 +1,43 @@
+{
+   "cap_add" : null,
+   "cap_drop" : null,
+   "cmd" : "v2ray -config\\=/etc/v2ray/config.json",
+   "cpu_priority" : 50,
+   "devices" : null,
+   "enable_publish_all_ports" : false,
+   "enable_restart_policy" : true,
+   "enabled" : false,
+   "env_variables" : [
+      {
+         "key" : "PATH",
+         "value" : "/usr/bin/v2ray:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      }
+   ],
+   "exporting" : false,
+   "id" : "e1d91a0cadeec5055eed6c7622b4450938fec43b830cbd418ef84a0dc2f3e136",
+   "image" : "v2ray/official:latest",
+   "is_ddsm" : false,
+   "is_package" : false,
+   "links" : [],
+   "memory_limit" : 213909504,
+   "memory_limit_slider" : 204,
+   "name" : "v2ray-official1",
+   "network" : [
+      {
+         "driver" : "host",
+         "name" : "host"
+      }
+   ],
+   "network_mode" : "host",
+   "port_bindings" : [],
+   "privileged" : false,
+   "shortcut" : {
+      "enable_shortcut" : true,
+      "enable_status_page" : true,
+      "enable_web_page" : false
+   },
+   "ulimits" : null,
+   "use_host_network" : true,
+   "volume_bindings" : [],
+   "volumes_from" : null
+}

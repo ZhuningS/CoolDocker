@@ -1,0 +1,73 @@
+{
+   "cap_add" : null,
+   "cap_drop" : null,
+   "cmd" : "sh -c sh\\ /wait-for\\ database.postgres:5432\\ --\\ php\\ /configure-db.php\\ \\&\\&\\ exec\\ s6-svscan\\ /etc/s6/",
+   "cpu_priority" : 0,
+   "devices" : null,
+   "enable_publish_all_ports" : false,
+   "enable_restart_policy" : true,
+   "enabled" : false,
+   "env_variables" : [
+      {
+         "key" : "PATH",
+         "value" : "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      },
+      {
+         "key" : "SELF_URL_PATH",
+         "value" : "http://192.168.1.103:1111/"
+      },
+      {
+         "key" : "DB_NAME",
+         "value" : "ttrss"
+      },
+      {
+         "key" : "DB_USER",
+         "value" : "postgres"
+      },
+      {
+         "key" : "DB_PASS",
+         "value" : "ttrss"
+      },
+      {
+         "key" : "DB_HOST",
+         "value" : "database.postgres"
+      },
+      {
+         "key" : "DB_PORT",
+         "value" : "5432"
+      }
+   ],
+   "exporting" : false,
+   "id" : "c272c2472e05cb4fd794e2f0a2c20a5fe3d2839f8200af1b22bc49c36b391f09",
+   "image" : "wangqiru/ttrss:latest",
+   "is_ddsm" : false,
+   "is_package" : false,
+   "links" : [],
+   "memory_limit" : 0,
+   "name" : "ttrss",
+   "network" : [
+      {
+         "driver" : "bridge",
+         "name" : "ttrss_default"
+      }
+   ],
+   "network_mode" : "ttrss_default",
+   "port_bindings" : [
+      {
+         "container_port" : 80,
+         "host_port" : 1111,
+         "type" : "tcp"
+      }
+   ],
+   "privileged" : false,
+   "shortcut" : {
+      "enable_shortcut" : false,
+      "enable_status_page" : false,
+      "enable_web_page" : false,
+      "web_page_url" : ""
+   },
+   "ulimits" : null,
+   "use_host_network" : false,
+   "volume_bindings" : [],
+   "volumes_from" : []
+}

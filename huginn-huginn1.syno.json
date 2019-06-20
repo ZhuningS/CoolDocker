@@ -1,0 +1,53 @@
+{
+   "cap_add" : null,
+   "cap_drop" : null,
+   "cmd" : "/scripts/init",
+   "cpu_priority" : 50,
+   "devices" : null,
+   "enable_publish_all_ports" : false,
+   "enable_restart_policy" : true,
+   "enabled" : false,
+   "env_variables" : [
+      {
+         "key" : "PATH",
+         "value" : "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      },
+      {
+         "key" : "OUTDATED_DOCKER_IMAGE_NAMESPACE",
+         "value" : "false"
+      }
+   ],
+   "exporting" : false,
+   "id" : "52895a7755cdb67a1fc20c75c3698f2baafe4cd14bf1857672e2012cb8ce636d",
+   "image" : "huginn/huginn:latest",
+   "is_ddsm" : false,
+   "is_package" : false,
+   "links" : [],
+   "memory_limit" : 1073741824,
+   "memory_limit_slider" : 1024,
+   "name" : "huginn-huginn1",
+   "network" : [
+      {
+         "driver" : "bridge",
+         "name" : "bridge"
+      }
+   ],
+   "network_mode" : "bridge",
+   "port_bindings" : [
+      {
+         "container_port" : 3000,
+         "host_port" : 3000,
+         "type" : "tcp"
+      }
+   ],
+   "privileged" : false,
+   "shortcut" : {
+      "enable_shortcut" : true,
+      "enable_status_page" : true,
+      "enable_web_page" : false
+   },
+   "ulimits" : null,
+   "use_host_network" : false,
+   "volume_bindings" : [],
+   "volumes_from" : null
+}

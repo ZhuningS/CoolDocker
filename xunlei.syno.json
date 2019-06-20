@@ -1,0 +1,48 @@
+{
+   "cap_add" : [],
+   "cap_drop" : [],
+   "cmd" : "./start.sh",
+   "cpu_priority" : 50,
+   "devices" : null,
+   "enable_publish_all_ports" : false,
+   "enable_restart_policy" : false,
+   "enabled" : true,
+   "env_variables" : [],
+   "exporting" : false,
+   "id" : "e55964fe8a05e678b0e796c149f0c72421a3a444827276135b33bfa55ccbbd57",
+   "image" : "xunlei:2019116",
+   "is_ddsm" : false,
+   "is_package" : false,
+   "links" : [],
+   "memory_limit" : 0,
+   "name" : "xunlei",
+   "network" : [
+      {
+         "driver" : "bridge",
+         "name" : "bridge"
+      }
+   ],
+   "network_mode" : "default",
+   "pin" : false,
+   "port_bindings" : [
+      {
+         "container_port" : 6066,
+         "host_port" : 6066,
+         "type" : "tcp"
+      }
+   ],
+   "privileged" : false,
+   "shortcut" : {
+      "enable_shortcut" : false
+   },
+   "ulimits" : null,
+   "use_host_network" : false,
+   "volume_bindings" : [
+      {
+         "host_volume_file" : "/xunlei",
+         "mount_point" : "/TDDOWNLOAD",
+         "type" : "rw"
+      }
+   ],
+   "volumes_from" : null
+}

@@ -1,0 +1,93 @@
+{
+   "cap_add" : null,
+   "cap_drop" : null,
+   "cmd" : "",
+   "cpu_priority" : 0,
+   "devices" : null,
+   "enable_publish_all_ports" : false,
+   "enable_restart_policy" : true,
+   "enabled" : true,
+   "env_variables" : [
+      {
+         "key" : "PATH",
+         "value" : "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      },
+      {
+         "key" : "PG_APP_HOME",
+         "value" : "/etc/docker-postgresql"
+      },
+      {
+         "key" : "PG_VERSION",
+         "value" : "10"
+      },
+      {
+         "key" : "PG_USER",
+         "value" : "postgres"
+      },
+      {
+         "key" : "PG_HOME",
+         "value" : "/var/lib/postgresql"
+      },
+      {
+         "key" : "PG_RUNDIR",
+         "value" : "/run/postgresql"
+      },
+      {
+         "key" : "PG_LOGDIR",
+         "value" : "/var/log/postgresql"
+      },
+      {
+         "key" : "PG_CERTDIR",
+         "value" : "/etc/postgresql/certs"
+      },
+      {
+         "key" : "PG_BINDIR",
+         "value" : "/usr/lib/postgresql/10/bin"
+      },
+      {
+         "key" : "PG_DATADIR",
+         "value" : "/var/lib/postgresql/10/main"
+      },
+      {
+         "key" : "PG_PASSWORD",
+         "value" : "ttrss"
+      },
+      {
+         "key" : "DB_EXTENSION",
+         "value" : "pg_trgm"
+      }
+   ],
+   "exporting" : false,
+   "id" : "676e681ce511120ba9698823126db62488bd0419acb18b1dd46ed0d60e0f3d27",
+   "image" : "sameersbn/postgresql:latest",
+   "is_ddsm" : false,
+   "is_package" : false,
+   "links" : [],
+   "memory_limit" : 0,
+   "name" : "postgres",
+   "network" : [
+      {
+         "driver" : "bridge",
+         "name" : "ttrss_default"
+      }
+   ],
+   "network_mode" : "ttrss_default",
+   "port_bindings" : [],
+   "privileged" : false,
+   "shortcut" : {
+      "enable_shortcut" : false,
+      "enable_status_page" : false,
+      "enable_web_page" : false,
+      "web_page_url" : ""
+   },
+   "ulimits" : null,
+   "use_host_network" : false,
+   "volume_bindings" : [
+      {
+         "host_volume_file" : "/docker/ttrss/data",
+         "mount_point" : "/var/lib/postgresql",
+         "type" : "rw"
+      }
+   ],
+   "volumes_from" : []
+}
